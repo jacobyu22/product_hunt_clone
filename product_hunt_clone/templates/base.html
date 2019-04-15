@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Jacob Yu</title>
+    <title>Product Hunt Clone Page</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,7 +37,7 @@
     <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class='container'>
-  <a class="navbar-brand" href="" style="color: black">
+  <a class="navbar-brand" href="{% url 'home' %}" style="color: black">
   <img src="{% static 'path-logo.png' %}" class="d-inline-block align-top" height='30' width='30'/>
   Clone of Product Hunt</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +46,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto" >
       {% if user.is_authenticated %}
+      <a class="nav-item nav-link" href="{% url 'create' %}">Add New Product</a>
       <a class="nav-item nav-link" href="javascript: {document.getElementById('logout').submit()}">LogOut</a>
       <form id="logout" method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
